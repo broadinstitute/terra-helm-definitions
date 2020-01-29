@@ -8,7 +8,3 @@ cockroachdb:
   conf:
     cache: "2Gi"
     max-sql-memory: "2Gi"
-  tls:
-    enabled: true
-    serviceAccount:
-      name: "cockroachdb-service-account"
