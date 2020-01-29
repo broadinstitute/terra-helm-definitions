@@ -1,2 +1,2 @@
 # terra-helm-definitions
-This repository contains Helm files for every kernel-style Terra deployment
+This repository contains Helm value files for deployments of charts in the [terra-helm repo](https://github.com/broadinstitute/terra-helm)
