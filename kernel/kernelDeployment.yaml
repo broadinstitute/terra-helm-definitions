@@ -1,4 +1,5 @@
 cockroachdb:
+  enabled: false
   statefulset:
     resources:
       limits:
@@ -8,3 +9,15 @@ cockroachdb:
   conf:
     cache: "2Gi"
     max-sql-memory: "2Gi"
+
+install-secrets-manager: true
+  enabled: true
+  vaultLocation: https://clotho.broadinstitute.org:8200
+  vaultVersion: kv1
+  serviceAccount:
+    create: true
+  rbac:
+    crete: true
+  existingSecret: secret-manager-approle
+    existingRoleIdKey: role-id
+    existingSecretIdKey: secret-id
