@@ -1,0 +1,90 @@
+atlantisUrl: http://34.102.213.175
+ingress:
+  enabled: false
+github:
+  user: broadbot
+vcsSecretName: atlantis-github-creds
+googleServiceAccountSecrets:
+- name: atlantis-sa
+  secretName: atlantis-sa
+orgWhitelist: 'github.com/broadinstitute/*,github.com/databiosphere/*'
+fullnameOverride: atlantis
+serviceAccount:
+  name: atlantis
+environmentSecrets:
+  - name: TF_VAR_approle_role_id
+    secretKeyRef:
+      name: atlantis-vault-approle
+      key: role-id
+  - name: TF_VAR_approle_secret_id
+    secretKeyRef:
+      name: atlantis-vault-approle
+      key: secret-id
+repoConfig: |
+  ---
+  repos:
+  - id: /.*/
+    apply_requirements: [approved, mergeable]
+    workflow: default
+    allowed_overrides: [workflow]
+  workflows:
+    gmalkov:
+      plan:
+        steps:
+        - init
+        - plan:
+            extra_args: ["-var-file", "gmalkov.tfvars"]
+extraManifests:
+  - apiVersion: networking.k8s.io/v1beta1
+    kind: Ingress
+    metadata:
+      name: basic-ingress
+      annotations:
+        kubernetes.io/ingress.global-static-ip-name: "dsp-tools-ip"
+    spec:
+      rules:
+      - http:
+          paths:
+          - path: /events
+            backend:
+              serviceName: atlantis
+              servicePort: 80
+  - apiVersion: policy/v1beta1
+    kind: PodSecurityPolicy
+    metadata:
+      name: atlantis-psp
+      annotations:
+        seccomp.security.alpha.kubernetes.io/allowedProfileNames: '*'
+    spec:
+      privileged: false
+      seLinux:
+        rule: RunAsAny
+      supplementalGroups:
+        rule: RunAsAny
+      runAsUser:
+        rule: RunAsAny
+      fsGroup:
+        rule: RunAsAny
+      volumes:
+      - '*'
+  - apiVersion: rbac.authorization.k8s.io/v1beta1
+    kind: ClusterRole
+    metadata:
+      name: atlantis-clusterrole
+    rules:
+    - apiGroups: ["extensions"]
+      resources: ["podsecuritypolicies"]
+      resourceNames: ["atlantis-psp"]
+      verbs: ["use"]
+  - apiVersion: rbac.authorization.k8s.io/v1beta1
+    kind: ClusterRoleBinding
+    metadata:
+      name: atlantis-rolebinding
+    roleRef:
+      apiGroup: rbac.authorization.k8s.io
+      kind: ClusterRole
+      name: atlantis-clusterrole
+    subjects:
+    - kind: ServiceAccount
+      name: atlantis
+      namespace: atlantis
