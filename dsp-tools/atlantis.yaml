@@ -27,13 +27,7 @@ repoConfig: |
     apply_requirements: [approved, mergeable]
     workflow: default
     allowed_overrides: [workflow]
-  workflows:
-    gmalkov:
-      plan:
-        steps:
-        - init
-        - plan:
-            extra_args: ["-var-file", "gmalkov.tfvars"]
+    allow_custom_workflows: true
 extraManifests:
   - apiVersion: networking.k8s.io/v1beta1
     kind: Ingress
