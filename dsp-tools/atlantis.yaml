@@ -1,3 +1,4 @@
+defaultTFVersion: '0.12.21'
 atlantisUrl: http://34.102.213.175
 ingress:
   enabled: false
