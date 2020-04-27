@@ -1,0 +1,60 @@
+server:
+  extraArgs:
+  - --insecure # Required to enable TLS termination at Ingress/LB
+  config: # SSO
+    url: https://ap-argocd.dsp-devops.broadinstitute.org
+    dex.config: |
+      connectors:
+        - type: github
+          id: github
+          name: GitHub
+          config:
+            clientID: 44eb2e55b99be9fef021
+            clientSecret: $dex.github.clientSecret
+            orgs:
+            - name: DataBiosphere
+            - name: broadinstitute
+    accounts.terra-ci: apiKey
+    configManagementPlugins: |
+      - name: legacy-consul-template
+        generate:  # Command to generate manifests YAML
+          command: ["elmer", "/etc/elmer/terra-dev.yaml"]
+  service:
+    type: NodePort # Required to enable forwarding from Ingress/LB to service
+  ingress:
+    enabled: true
+    paths:
+      - /*
+    tls:
+    - hosts:
+      - ap-argocd.broadinstitute.org
+      secretName: ap-argocd-ingress-tls
+    annotations:
+      kubernetes.io/ingress.global-static-ip-name: ap-argocd-server
+      kubernetes.io/ingress.allow-http: "false" # https only
+  rbacConfig:
+    policy.default: role:readonly
+    policy.csv: |
+      g, broadinstitute:DSP DevOps, role:admin
+
+      p, role:terra-ci, applications, sync, */terra-dev, allow
+      g, terra-ci, role:terra-ci
+repoServer:
+  image:
+    repository: gcr.io/dsp-tools-k8s/argocd-custom
+    tag: 0.0.2
+  env:
+    - name: VAULT_ADDR
+      value: https://clotho.broadinstitute.org:8200
+    - name: VAULT_ROLE_ID
+      valueFrom:
+        secretKeyRef:
+          name: ap-argocd-reposerver-vault
+          key: roleid
+    - name: VAULT_SECRET_ID
+      valueFrom:
+        secretKeyRef:
+          name: ap-argocd-reposerver-vault
+          key: secretid
+    - name: ARGOCD_GIT_MODULES_ENABLED # Required for firecloud-develop clones to succeed
+      value: "false"
