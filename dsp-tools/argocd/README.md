@@ -28,7 +28,7 @@ Create TLS secret using pre-made tls crt & key files
       --from-file=tls.crt \
       --from-file=tls.key
 
-Create Vault secret for repo server (pull values from secret/devops/ci/approle/approle-terra-k8s-ci)
+Create Vault secret for repo server (pull values from secret/suitable/ap-argocd/approle)
 
     kubectl -n ap-argocd create secret generic ap-argocd-reposerver-vault \
       --from-literal=roleid=<role id>
@@ -70,7 +70,7 @@ Configure [GitHub OAuth](https://argoproj.github.io/argo-cd/operator-manual/user
     argocd account update-password
 
     # Update admin password in Vault
-    vault write secret/suitable/argocd/local-accounts/admin \
+    vault write secret/suitable/ap-argocd/local-accounts/admin \
       username=admin password=<configured-password>
 
 ### Generate and save API token for terra-ci account
