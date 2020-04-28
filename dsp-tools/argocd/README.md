@@ -1,6 +1,6 @@
 # AP ArgoCD
 
-This repository contains resources for configuring the [AP Devops ArgoCD instance](https://ap-argocd.dsp-devops.broadinstitute.org/applications).
+This directory contains documentation and a values file for configuring the [AP Devops ArgoCD instance](https://ap-argocd.dsp-devops.broadinstitute.org/applications).
 
 ## Pushing Values Changes
 
