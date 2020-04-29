@@ -19,6 +19,11 @@ server:
       - name: legacy-consul-template
         generate:  # Command to generate manifests YAML
           command: ["elmer", "/etc/elmer/terra-dev.yaml"]
+      - name: helm-values
+        init:
+          command: ["helm-values.sh", "init"]
+        generate:
+          command: ["helm-values.sh", "generate"]
   service:
     type: NodePort # Required to enable forwarding from Ingress/LB to service
   ingress:
@@ -42,7 +47,7 @@ server:
 repoServer:
   image:
     repository: gcr.io/dsp-tools-k8s/argocd-custom
-    tag: 0.0.3
+    tag: 0.0.5
   env:
     - name: VAULT_ADDR
       value: https://clotho.broadinstitute.org:8200
