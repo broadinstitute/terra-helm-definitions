@@ -1,0 +1,6 @@
+cromwell:
+  enabled: false
+poc:
+  enabled: true
+  image:
+    tag: 0.13.0
