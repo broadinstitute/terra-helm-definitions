@@ -3,6 +3,7 @@ atlantis:
   atlantisUrl: https://atlantis.dsp-devops.broadinstitute.org
   ingress:
     enabled: true
+    path: /*
     host: atlantis.dsp-devops.broadinstitute.org
     tls:
       - hosts:
