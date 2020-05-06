@@ -7,7 +7,7 @@ atlantis:
     tls:
       - hosts:
         - atlantis.dsp-devops.broadinstitute.org
-        secretName: atlantis-tls
+        secretName: atlantis-cert
   github:
     user: broadbot
   vcsSecretName: atlantis-github-creds
