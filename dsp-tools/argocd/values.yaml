@@ -40,7 +40,7 @@ server:
       - /*
     tls:
     - hosts:
-      - ap-argocd.broadinstitute.org
+      - ap-argocd.dsp-devops.broadinstitute.org
       secretName: ap-argocd-ingress-tls
     annotations:
       kubernetes.io/ingress.global-static-ip-name: ap-argocd-server
