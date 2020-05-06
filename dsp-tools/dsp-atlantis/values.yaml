@@ -5,6 +5,8 @@ atlantis:
     enabled: true
     path: /*
     host: atlantis.dsp-devops.broadinstitute.org
+    annotations:
+      kubernetes.io/ingress.global-static-ip-name: atlantis-ip
     tls:
       - hosts:
         - atlantis.dsp-devops.broadinstitute.org
