@@ -1,3 +1,11 @@
+global:
+  hostAliases:
+  - ip: 35.238.186.116
+    hostnames:
+    - "terra-dev.clusters.argocd.local"
+  - ip: 34.70.205.77
+    hostnames:
+    - "terra-integration.clusters.argocd.local"
 server:
   extraArgs:
   - --insecure # Required to enable TLS termination at Ingress/LB
