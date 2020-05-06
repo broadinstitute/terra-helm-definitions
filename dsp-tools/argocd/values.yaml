@@ -19,6 +19,14 @@ server:
       - name: legacy-consul-template
         generate:  # Command to generate manifests YAML
           command: ["elmer", "/etc/elmer/terra-dev.yaml"]
+      - name: legacy-configs
+        generate:
+          command: ["legacy-configs.sh"]
+      - name: helmfile
+        init:
+          command: ["helmfile.sh", "init"]
+        generate:
+          command: ["helmfile.sh", "generate"]
       - name: helm-values
         init:
           command: ["helm-values.sh", "init"]
@@ -47,7 +55,7 @@ server:
 repoServer:
   image:
     repository: gcr.io/dsp-tools-k8s/argocd-custom
-    tag: 0.0.5
+    tag: 0.0.6
   env:
     - name: VAULT_ADDR
       value: https://clotho.broadinstitute.org:8200
