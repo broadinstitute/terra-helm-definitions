@@ -1,0 +1,37 @@
+atlantis:
+  defaultTFVersion: '0.12.21'
+  atlantisUrl: https://atlantis.dsp-devops.broadinstitute.org
+  ingress:
+    enabled: true
+    path: /*
+    host: atlantis.dsp-devops.broadinstitute.org
+    annotations:
+      kubernetes.io/ingress.global-static-ip-name: atlantis-ip
+    tls:
+      - hosts:
+        - atlantis.dsp-devops.broadinstitute.org
+        secretName: atlantis-cert
+  github:
+    user: broadbot
+  vcsSecretName: atlantis-github-creds
+  googleServiceAccountSecrets:
+  - name: atlantis-sa
+    secretName: atlantis-sa
+  orgWhitelist: 'github.com/broadinstitute/*,github.com/databiosphere/*'
+  environmentSecrets:
+    - name: TF_VAR_approle_role_id
+      secretKeyRef:
+        name: atlantis-vault-approle
+        key: role-id
+    - name: TF_VAR_approle_secret_id
+      secretKeyRef:
+        name: atlantis-vault-approle
+        key: secret-id
+  repoConfig: |
+    ---
+    repos:
+    - id: /.*/
+      apply_requirements: [mergeable, approved]
+      workflow: default
+      allowed_overrides: [workflow]
+      allow_custom_workflows: true
