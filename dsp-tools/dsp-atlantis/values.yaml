@@ -27,6 +27,10 @@ atlantis:
       secretKeyRef:
         name: atlantis-vault-approle
         key: secret-id
+    - name: TF_VAR_github_token
+      secretKeyRef:
+        name: atlantis-github-provider
+        key: github-token
   repoConfig: |
     ---
     repos:
