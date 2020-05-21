@@ -52,11 +52,15 @@ server:
       kubernetes.io/ingress.allow-http: "false" # https only
   rbacConfig:
     policy.default: role:readonly
+    # TODO - these need to be adjusted for suitability.
     policy.csv: |
       g, broadinstitute:DSP DevOps, role:admin
 
-      p, role:terra-ci, applications, sync, */terra-dev, allow
+      p, role:terra-ci, applications, sync, */*, allow
       g, terra-ci, role:terra-ci
+
+      p, role:dsde-engineer, applications, *, */*, allow
+      g, broadinstitute:DSDE Engineering, role:dsde-engineer
 repoServer:
   image:
     repository: gcr.io/dsp-tools-k8s/argocd-custom
