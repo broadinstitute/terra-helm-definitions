@@ -64,7 +64,7 @@ server:
 repoServer:
   image:
     repository: gcr.io/dsp-tools-k8s/argocd-custom
-    tag: 0.0.7
+    tag: 0.1.1
   env:
     - name: VAULT_ADDR
       value: https://clotho.broadinstitute.org:8200

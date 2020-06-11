@@ -8,7 +8,7 @@ Here's how to push updates to values.yaml to the existing, deployed ArgoCD insta
 
     helm upgrade ap-argocd argo-cd \
       --repo https://argoproj.github.io/argo-helm \
-      --version 2.2.2 \
+      --version 2.3.5 \
       --namespace ap-argocd \
       -f ./values.yaml
 
