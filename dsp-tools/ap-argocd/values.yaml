@@ -60,6 +60,9 @@ server:
 
       p, role:terra-ci, applications, sync, */*, allow
       g, terra-ci, role:terra-ci
+controller:
+  extraArgs:
+  - --repo-server-timeout-seconds=180
 repoServer:
   image:
     repository: gcr.io/dsp-tools-k8s/argocd-custom
