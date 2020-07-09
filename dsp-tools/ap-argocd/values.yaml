@@ -48,7 +48,7 @@ server:
     tls:
     - hosts:
       - ap-argocd.dsp-devops.broadinstitute.org
-      secretName: ap-argocd-ingress-tls
+      secretName: argocd-cert
     annotations:
       kubernetes.io/ingress.global-static-ip-name: ap-argocd-server
       kubernetes.io/ingress.allow-http: "false" # https only
