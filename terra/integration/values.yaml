@@ -14,10 +14,10 @@ terra-prometheus:
       ingress:
         enabled: true
         annotations:
-          kubernetes.io/ingress.global-static-ip-name: terra-staging-prometheus-ip
+          kubernetes.io/ingress.global-static-ip-name: terra-integ-prometheus-ip
           kubernetes.io/ingress.allow-http: "false"
         hosts:
-          - "prometheus.dsde-staging.broadinstitute.org"
+          - "prometheus.integ.envs.broadinstitute.org"
         paths:
           - /*
         tls:
