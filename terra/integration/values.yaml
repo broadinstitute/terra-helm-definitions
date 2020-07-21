@@ -2,7 +2,7 @@ terra-cluster-networking:
   gateway:
     name: template-gateway
 terra-prometheus:
-  certmanager:
+  certManager:
     enabled: true
     dnsNames: 
       - "prometheus.integ.envs.broadinstitute.org"
