@@ -4,8 +4,7 @@ terra-cluster-networking:
 terra-prometheus:
   certManager:
     enabled: true
-    dnsNames: 
-      - "prometheus.integ.envs.broadinstitute.org"
+    dnsNames: "prometheus.integ.envs.broadinstitute.org"
   prometheus-operator:
     fullnameOverride: "terra-prometheus-operator"
     prometheusOperator:
