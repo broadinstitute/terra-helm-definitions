@@ -6,11 +6,19 @@ This directory contains documentation and a values file for configuring the [AP 
 
 Here's how to push updates to values.yaml to the existing, deployed ArgoCD installation:
 
-    helm upgrade ap-argocd argo-cd \
-      --repo https://argoproj.github.io/argo-helm \
+    helm repo add argo https://argoproj.github.io/argo-helm
+
+    helm upgrade ap-argocd argo/argo-cd \
       --version 2.3.5 \
       --namespace ap-argocd \
       -f ./values.yaml
+
+It might be useful to run a diff first, using [helm-diff](https://github.com/databus23/helm-diff):
+
+    helm diff upgrade ap-argocd argo/argo-cd \
+      --version 2.3.5 \
+      --namespace ap-argocd \
+      -f values.yaml
 
 ## Initial deployment / Manual setup
 

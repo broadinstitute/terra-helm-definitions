@@ -59,6 +59,7 @@ server:
       g, broadinstitute:DSP DevOps, role:admin
 
       p, role:terra-ci, applications, sync, */*, allow
+      p, role:terra-ci, applications, action/apps/Deployment/restart, */*, allow
       g, terra-ci, role:terra-ci
 controller:
   extraArgs:
