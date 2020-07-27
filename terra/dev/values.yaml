@@ -44,7 +44,7 @@ terra-prometheus:
               - --stackdriver.kubernetes.cluster-name=terra-dev
               #- \"--stackdriver.generic.location=us-central1\"
               #- \"--stackdriver.generic.namespace=terra-stackdriver-k8s\"
-              - --include='{__name__=~"kube_node_status_condition"}' # Used for cluster health alert
+              - --include={__name__=~"kube_node_status_condition"} # Used for cluster health alert
             ports:
               - name: stackdriver-exp
                 containerPort: 9091
