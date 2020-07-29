@@ -15,6 +15,10 @@ terra-prometheus:
     fullnameOverride: "terra-prometheus-operator"
     prometheusOperator:
       createCustomResource: false
+      admissionWebhooks:
+        enabled: false # known issue with GKE clusters
+      tlsProxy:
+        enabled: false #
     prometheus:
       ingress:
         enabled: true
