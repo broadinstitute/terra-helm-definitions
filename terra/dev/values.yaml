@@ -20,6 +20,7 @@ terra-prometheus:
       tlsProxy:
         enabled: false #
     grafana:
+      namespaceOverride: monitoring
       ingress:
         enabled: true
         annotations:
