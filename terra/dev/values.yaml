@@ -21,6 +21,10 @@ terra-prometheus:
         enabled: false #
     grafana:
       namespaceOverride: monitoring
+      env:
+        GF_SERVER_DOMAIN: "k8s-sys-graph.dsde-dev.broadinstitute.org"
+        GF_SERVER_ROOT_URL: "https://k8s-sys-graph.dsde-dev.broadinstitute.org"
+        GF_USERS_AUTO_ASSIGN_ORG_ROLE: "Viewer"
       ingress:
         enabled: true
         annotations:
