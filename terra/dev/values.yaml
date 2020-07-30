@@ -33,7 +33,7 @@ terra-prometheus:
         hosts:
           - "k8s-sys-graph.dsde-dev.broadinstitute.org"
         paths:
-          - /*
+          - "/*""
         tls:
           - secretName: terra-prometheus-cert
       service:
