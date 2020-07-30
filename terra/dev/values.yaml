@@ -32,7 +32,7 @@ terra-prometheus:
           kubernetes.io/ingress.allow-http: "false"
         hosts:
           - "k8s-sys-graph.dsde-dev.broadinstitute.org"
-        paths:
+        path:
           - "/*"
         tls:
           - secretName: terra-prometheus-cert
