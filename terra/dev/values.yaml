@@ -19,6 +19,31 @@ terra-prometheus:
         enabled: false # known issue with GKE clusters
       tlsProxy:
         enabled: false #
+    grafana:
+      ingress:
+        enabled: true
+        annotations:
+          kubernetes.io/ingress.global-static-ip-name: terra-dev-k8s-sys-graph-ip
+          kubernetes.io/ingress.allow-http: "false"
+        hosts:
+          - "k8s-sys-graph.dsde-dev.broadinstitute.org"
+        paths:
+          - /*
+        tls:
+          - secretName: terra-prometheus-cert
+      service:
+        type: NodePort
+        annotations:
+          cloud.google.com/backend-config: '{"ports": {"80": "prometheus-cloud-armor"}}'
+      grafana.ini:
+        users:
+          viewers_can_edit: false
+        auth:
+          disable_login_form: true
+          disable_signout_menu: true
+        auth.anonymous:
+          enabled: true
+          org_role: Viewer
     prometheus:
       ingress:
         enabled: true
@@ -50,7 +75,6 @@ terra-prometheus:
               #- \"--stackdriver.generic.namespace=terra-stackdriver-k8s\"
               - --include={sd_export!="false",__name__!~"container_.*|scrape_.*|node_.*|prober_.*|instance:.*|code_.*|mixin_.*|cluster_.*",__name__=~".+"}
               - --include={__name__=~"kube_node_status_condition"} # Used for cluster health alert
-
             ports:
               - name: stackdriver-exp
                 containerPort: 9091
