@@ -66,6 +66,10 @@ terra-prometheus:
         type: NodePort
       prometheusSpec:
         externalUrl: https://prometheus.dsde-dev.broadinstitute.org
+        serviceMonitorSelectorNilUsesHelmValues: false
+        serviceMonitorSelector: {}
+        serviceMonitorNamespaceSelector:
+          any: true
         containers:
           - name: stackdriver-exporter
             image: gcr.io/stackdriver-prometheus/stackdriver-prometheus-sidecar:0.7.5
