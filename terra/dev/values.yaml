@@ -39,15 +39,6 @@ terra-prometheus:
         type: NodePort
         annotations:
           cloud.google.com/backend-config: '{"ports": {"80": "prometheus-cloud-armor"}}'
-      # grafana.ini:
-      #   users:
-      #     viewers_can_edit: false
-      #   auth:
-      #     disable_login_form: true
-      #     disable_signout_menu: true
-      #   auth.anonymous:
-      #     enabled: true
-      #     org_role: Viewer
     prometheus:
       ingress:
         enabled: true
@@ -69,6 +60,9 @@ terra-prometheus:
         serviceMonitorSelectorNilUsesHelmValues: false
         serviceMonitorSelector: {}
         serviceMonitorNamespaceSelector: {}
+        podMonitorSelectorNilUsesHelmValues: false
+        podMonitorSelector: {}
+        podMonitorNamespaceSelector: {}
         containers:
           - name: stackdriver-exporter
             image: gcr.io/stackdriver-prometheus/stackdriver-prometheus-sidecar:0.7.5
