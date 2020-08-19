@@ -24,7 +24,7 @@ atlantis:
       cpu: 100m
     limits:
       memory: 2Gi
-      cpu: "1"
+      cpu: "2"
   environment:
     ATLANTIS_HIDE_PREV_PLAN_COMMENTS: true
   environmentSecrets:
