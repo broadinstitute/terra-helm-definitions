@@ -17,7 +17,9 @@ atlantis:
   googleServiceAccountSecrets:
   - name: atlantis-sa
     secretName: atlantis-sa
-  orgWhitelist: 'github.com/broadinstitute/*,github.com/databiosphere/*'
+  orgWhitelist: 'github.com/broadinstitute/*'
+  environment:
+    ATLANTIS_HIDE_PREV_PLAN_COMMENTS: true
   environmentSecrets:
     - name: TF_VAR_approle_role_id
       secretKeyRef:
