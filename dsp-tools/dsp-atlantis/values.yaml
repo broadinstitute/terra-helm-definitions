@@ -18,6 +18,13 @@ atlantis:
   - name: atlantis-sa
     secretName: atlantis-sa
   orgWhitelist: 'github.com/broadinstitute/*'
+  resources:
+    requests:
+      memory: 1Gi
+      cpu: 100m
+    limits:
+      memory: 2Gi
+      cpu: 500m
   environment:
     ATLANTIS_HIDE_PREV_PLAN_COMMENTS: true
   environmentSecrets:
