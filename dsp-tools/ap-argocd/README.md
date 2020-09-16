@@ -40,7 +40,7 @@ Deploy preinstall chart (no values file needed)
 
     helm install ap-argocd-preinstall ap-argocd-preinstall \
       --repo https://broadinstitute.github.io/terra-helm \
-      --version 0.1.0 \
+      --version 0.1.1 \
       --namespace ap-argocd
 
 Deploy official ArgoCD chart

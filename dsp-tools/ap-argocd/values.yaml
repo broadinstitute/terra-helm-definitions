@@ -40,6 +40,8 @@ server:
           command: ["terra-helmfile-argocd.sh", "generate"]
   service:
     type: NodePort # Required to enable forwarding from Ingress/LB to service
+    annotations:
+      cloud.google.com/backend-config: '{"default": "argocd-backendconfig"}'
   ingress:
     enabled: true
     paths:
@@ -51,7 +53,6 @@ server:
     annotations:
       kubernetes.io/ingress.global-static-ip-name: ap-argocd-server
       kubernetes.io/ingress.allow-http: "false" # https only
-      cloud.google.com/backend-config: '{"default": "argocd-backendconfig"}'
   rbacConfig:
     policy.default: role:readonly
     # TODO - these need to be adjusted for suitability.
