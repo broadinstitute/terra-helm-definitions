@@ -20,9 +20,6 @@ server:
     accounts.local-notsuitable: login
     accounts.local-suitable: login
     configManagementPlugins: |
-      - name: legacy-consul-template
-        generate:  # Command to generate manifests YAML
-          command: ["elmer", "/etc/elmer/terra-dev.yaml"]
       - name: legacy-configs
         generate:
           command: ["legacy-configs.sh"]
@@ -54,6 +51,7 @@ server:
     annotations:
       kubernetes.io/ingress.global-static-ip-name: ap-argocd-server
       kubernetes.io/ingress.allow-http: "false" # https only
+      cloud.google.com/backend-config: '{"default": "argocd-backendconfig"}'
   rbacConfig:
     policy.default: role:readonly
     # TODO - these need to be adjusted for suitability.
