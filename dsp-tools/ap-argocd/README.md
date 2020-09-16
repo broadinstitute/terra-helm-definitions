@@ -30,12 +30,6 @@ Create namespace
 
     kubectl create namespace ap-argocd
 
-Create TLS secret using pre-made tls crt & key files
-
-    kubectl -n ap-argocd create secret generic ap-argocd-ingress-tls \
-      --from-file=tls.crt \
-      --from-file=tls.key
-
 Create Vault secret for repo server (pull values from secret/suitable/ap-argocd/approle)
 
     kubectl -n ap-argocd create secret generic ap-argocd-reposerver-vault \
@@ -46,7 +40,7 @@ Deploy preinstall chart (no values file needed)
 
     helm install ap-argocd-preinstall ap-argocd-preinstall \
       --repo https://broadinstitute.github.io/terra-helm \
-      --version 0.0.1 \
+      --version 0.1.0 \
       --namespace ap-argocd
 
 Deploy official ArgoCD chart
