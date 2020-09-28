@@ -1,3 +1,5 @@
+cert:
+  renewBefore: 360h0m0s
 atlantis:
   defaultTFVersion: '0.12.21'
   atlantisUrl: https://atlantis.dsp-devops.broadinstitute.org
