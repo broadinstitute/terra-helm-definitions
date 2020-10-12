@@ -9,16 +9,22 @@ Here's how to push updates to values.yaml to the existing, deployed ArgoCD insta
     helm repo add argo https://argoproj.github.io/argo-helm
 
     helm upgrade ap-argocd argo/argo-cd \
-      --version 2.3.5 \
+      --version 2.9.2 \
+      --set global.image.tag=v1.7.7 \
       --namespace ap-argocd \
       -f ./values.yaml
 
 It might be useful to run a diff first, using [helm-diff](https://github.com/databus23/helm-diff):
 
     helm diff upgrade ap-argocd argo/argo-cd \
-      --version 2.3.5 \
+      --version 2.9.2 \
+      --set global.image.tag=v1.7.7 \
       --namespace ap-argocd \
-      -f values.yaml
+      -f ./values.yaml
+
+Note that:
+ * `global.image.tag` is used to specify a different version of the ArgoCD app than is deployed by the chart; it might not always be necessary
+ * Prior to upgrading ArgoCD, be sure to [build an updated custom repo server image](https://github.com/broadinstitute/terra-helmfile-images/blob/main/cloudbuild.yaml#L33) and update `repoServer.image.tag` to point to the new image `values.yaml`
 
 ## Initial deployment / Manual setup
 
