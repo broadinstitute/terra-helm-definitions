@@ -34,10 +34,11 @@ server:
         generate:
           command: ["helm-values.sh", "generate"]
       - name: terra-helmfile-argocd
-        init:
-          command: ["terra-helmfile-argocd.sh", "init"]
         generate:
           command: ["terra-helmfile-argocd.sh", "generate"]
+      - name: terra-helmfile-app
+        generate:
+          command: ["terra-helmfile-app.sh", "generate"]
   service:
     type: NodePort # Required to enable forwarding from Ingress/LB to service
     annotations:
@@ -67,8 +68,8 @@ controller:
   - --repo-server-timeout-seconds=180
 repoServer:
   image:
-    repository: gcr.io/dsp-tools-k8s/argocd-custom
-    tag: 0.1.1
+    repository: us-central1-docker.pkg.dev/dsp-artifact-registry/terra-helmfile-images/argocd-custom-image
+    tag: main-1d48b4b
   env:
     - name: VAULT_ADDR
       value: https://clotho.broadinstitute.org:8200
