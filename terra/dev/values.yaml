@@ -84,5 +84,3 @@ terra-prometheus:
                 mountPath: /prometheus
 reloader:
   enabled: false
-filebeat:
-  enabled: true
