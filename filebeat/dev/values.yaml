@@ -15,7 +15,7 @@ terra-filebeat:
             logs_path: "/var/log/containers/"
         - drop_event
             when:
-              not:
+              - not:
                 equals:
                   kubernetes.namespace: terra-dev
         output.elasticsearch:
