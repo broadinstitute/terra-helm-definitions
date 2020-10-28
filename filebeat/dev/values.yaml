@@ -1,0 +1,3 @@
+terra-filebeat:
+  filebeat:
+    imageTag: 7.9.3
