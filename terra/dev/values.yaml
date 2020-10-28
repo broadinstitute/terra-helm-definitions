@@ -82,3 +82,7 @@ terra-prometheus:
             volumeMounts:
               - name: prometheus-terra-prometheus-operator-prometheus-db
                 mountPath: /prometheus
+reloader:
+  enabled: false
+filebeat:
+  enabled: true
