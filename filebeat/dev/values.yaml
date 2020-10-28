@@ -3,8 +3,8 @@ terra-filebeat:
     imageTag: 7.9.3
     filebeatConfig:
       filebeat.yml: |
-          filebeat.inputs:
-          - type: container
+        filebeat.inputs:
+        - type: container
           paths:
             - /var/log/containers/*.log
           processors:
@@ -18,6 +18,6 @@ terra-filebeat:
               not:
                 equals:
                   kubernetes.namespace: terra-dev
-          output.elasticsearch:
+        output.elasticsearch:
           host: '${NODE_NAME}'
           hosts: '${ELASTICSEARCH_HOSTS:elasticsearch-master:9200}'
