@@ -17,5 +17,7 @@ filebeat:
               not:
                 equal:
                   kubernetes.namespace: terra-dev
-
+      output.elasticsearch:
+        host: '${NODE_NAME}'
+        hosts: '${ELASTICSEARCH_HOSTS:elasticsearch-master:9200}'    
        
