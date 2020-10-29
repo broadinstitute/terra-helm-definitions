@@ -15,7 +15,7 @@ filebeat:
         - drop_event:
             when:
               not:
-                equal:
+                equals:
                   kubernetes.namespace: terra-dev
       output.elasticsearch:
         host: '${NODE_NAME}'
