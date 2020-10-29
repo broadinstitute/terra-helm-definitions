@@ -12,5 +12,10 @@ filebeat:
           matchers:
           - logs_path:
               logs_path: "/var/log/containers/"
+        - drop_event:
+            when:
+              not:
+                equal:
+                  kubernetes.namespace: terra-dev
 
        
