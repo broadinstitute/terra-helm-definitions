@@ -23,7 +23,6 @@ filebeat:
         hosts: 
           - ${LOGIT_URL}:18461
         loadbalance: true
-        ssl:
-          enabled: true
+        ssl.enabled: true
         worker: 2    
          
