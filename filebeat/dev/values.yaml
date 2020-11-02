@@ -1,7 +1,7 @@
 vault:
   logitUrlPath: secret/dsde/firecloud/dev/common/logitapi
 filebeat:
-  imageTag: 6.8
+  imageTag: 6.8.13
   filebeatConfig:
     filebeat.yml: |
       filebeat.inputs:
