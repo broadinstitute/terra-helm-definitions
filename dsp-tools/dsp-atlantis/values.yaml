@@ -22,11 +22,11 @@ atlantis:
   orgWhitelist: 'github.com/broadinstitute/*'
   resources:
     requests:
-      memory: 1Gi
+      memory: 2Gi
       cpu: 100m
     limits:
-      memory: 2Gi
-      cpu: "2"
+      memory: 3Gi
+      cpu: "3"
   environment:
     ATLANTIS_HIDE_PREV_PLAN_COMMENTS: true
   environmentSecrets:
@@ -42,7 +42,7 @@ atlantis:
       secretKeyRef:
         name: atlantis-github-provider
         key: github-token
-  repoConfig: |
+  repoConfig: |-
     ---
     repos:
     - id: /.*/
