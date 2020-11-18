@@ -42,7 +42,7 @@ atlantis:
       secretKeyRef:
         name: atlantis-github-provider
         key: github-token
-  repoConfig: |-
+  repoConfig: |
     ---
     repos:
     - id: /.*/
