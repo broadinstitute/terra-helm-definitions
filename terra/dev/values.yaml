@@ -16,6 +16,10 @@ terra-prometheus:
     alertmanager:
       alertmanagerSpec:
         configSecret: terra-prometheus-alertmanager-config
+    # disable bad scrape target
+    kubelet:
+      serviceMonitor:
+        resource: false
     prometheusOperator:
       createCustomResource: false
       admissionWebhooks:
