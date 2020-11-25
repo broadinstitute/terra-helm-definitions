@@ -63,6 +63,9 @@ terra-prometheus:
           cloud.google.com/backend-config: '{"ports": {"9090": "prometheus-cloud-armor"}}'
         type: NodePort
       prometheusSpec:
+        externalLabels:
+          cluster: terra-dev
+          environment: dev
         externalUrl: https://prometheus.dsde-dev.broadinstitute.org
         serviceMonitorSelectorNilUsesHelmValues: false
         serviceMonitorSelector: {}
