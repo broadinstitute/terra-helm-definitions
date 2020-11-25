@@ -15,6 +15,13 @@ terra-prometheus:
       secretKey: chain
   prometheus-operator:
     fullnameOverride: "terra-prometheus-operator"
+    alertmanager:
+      alertmanagerSpec:
+        configSecret: terra-prometheus-alertmanager-config
+    # disable bad scrape target
+    kubelet:
+      serviceMonitor:
+        resource: false
     prometheusOperator:
       createCustomResource: false
       admissionWebhooks:
