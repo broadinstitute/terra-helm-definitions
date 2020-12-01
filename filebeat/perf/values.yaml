@@ -1,0 +1,4 @@
+vault:
+  logitUrlPath: secret/dsde/firecloud/perf/common/logitapi
+beatsPort: "18461" 
+environmentName: perf
