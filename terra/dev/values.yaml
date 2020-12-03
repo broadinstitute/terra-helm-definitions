@@ -14,6 +14,7 @@ terra-prometheus:
   prometheus-operator:
     fullnameOverride: "terra-prometheus-operator"
     alertmanager:
+      enabled: false
       alertmanagerSpec:
         configSecret: terra-prometheus-alertmanager-config
     # disable bad scrape target
