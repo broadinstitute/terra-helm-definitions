@@ -1,0 +1,4 @@
+vault:
+  logitUrlPath: secret/dsde/firecloud/staging/common/logitapi
+beatsPort: "18461" 
+environmentName: staging
