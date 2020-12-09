@@ -1,0 +1,4 @@
+vault:
+  logitUrlPath: secret/dsde/firecloud/prod/common/logitapi
+beatsPort: "20000" 
+environmentName: prod
