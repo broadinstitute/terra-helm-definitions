@@ -55,6 +55,9 @@ terra-prometheus:
         podMonitorSelectorNilUsesHelmValues: false
         podMonitorSelector: {}
         podMonitorNamespaceSelector: {}
+        ruleSelectorNilUsesHelmValues: false
+        ruleSelector: {}
+        ruleNamespaceSelector: {}
         containers:
           - name: stackdriver-exporter
             image: gcr.io/stackdriver-prometheus/stackdriver-prometheus-sidecar:0.7.5
