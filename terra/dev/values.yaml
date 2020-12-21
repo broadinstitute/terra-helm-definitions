@@ -11,7 +11,7 @@ terra-prometheus:
     chain:
       path: secret/common/ca-bundle.crt
       secretKey: chain
-  prometheus-operator:
+  kube-prometheus-stack:
     fullnameOverride: "terra-prometheus-operator"
     alertmanager:
       enabled: false
