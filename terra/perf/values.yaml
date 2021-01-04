@@ -1,6 +1,7 @@
 terra-cluster-networking:
   enabled: false
 terra-prometheus:
+  enableCronjobAlerts: false
   # TLS Values
   vaultCert:
     enabled: true
