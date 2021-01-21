@@ -13,6 +13,7 @@ terra-prometheus:
       secretKey: chain
   kube-prometheus-stack:
     fullnameOverride: "terra-prometheus-operator"
+    kubeTargetVersionOverride: 1.17.9
     alertmanager:
       enabled: false
       alertmanagerSpec:
