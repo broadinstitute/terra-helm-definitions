@@ -1,3 +1,5 @@
+terra-cluster-networking:
+  enabled: false
 terra-prometheus:
   # TLS Values
   vaultCert:
