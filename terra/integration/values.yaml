@@ -5,7 +5,7 @@ terra-prometheus:
   certManager:
     enabled: true
     dnsNames: "prometheus.integ.envs.broadinstitute.org"
-  prometheus-operator:
+  kube-prometheus-stack:
     fullnameOverride: "terra-prometheus-operator"
     prometheusOperator:
       createCustomResource: false
