@@ -98,3 +98,6 @@ terra-prometheus:
             volumeMounts:
               - name: prometheus-terra-prometheus-operator-prometheus-db
                 mountPath: /prometheus
+diskmanager:
+  config:
+    googleProject: broad-dsde-dev
