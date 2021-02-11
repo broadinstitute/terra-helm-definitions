@@ -101,3 +101,5 @@ terra-prometheus:
 diskmanager:
   config:
     googleProject: broad-dsde-dev
+  vault:
+    pathPrefix: secret/dsde/firecloud/dev
