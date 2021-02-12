@@ -103,5 +103,10 @@ diskmanager:
     googleProject: broad-dsde-dev
   nodeSelector:
     bio.terra/node-pool: cronjob
+  tolerations:
+  - key: "bio.terra/workload"
+    operator: Equal
+    value: cronjob
+    effect: NoSchedule
   vault:
     pathPrefix: secret/dsde/firecloud/dev
