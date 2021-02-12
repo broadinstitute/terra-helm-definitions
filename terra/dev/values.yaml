@@ -101,5 +101,7 @@ terra-prometheus:
 diskmanager:
   config:
     googleProject: broad-dsde-dev
+  nodeSelector:
+    bio.terra/node-pool: cronjob
   vault:
     pathPrefix: secret/dsde/firecloud/dev
