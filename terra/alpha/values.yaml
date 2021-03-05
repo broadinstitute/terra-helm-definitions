@@ -77,3 +77,15 @@ terra-prometheus:
             volumeMounts:
               - name: prometheus-terra-prometheus-operator-prometheus-db
                 mountPath: /prometheus
+diskmanager:
+  config:
+    googleProject: broad-dsde-alpha
+  nodeSelector:
+    bio.terra/node-pool: cronjob
+  tolerations:
+  - key: "bio.terra/workload"
+    operator: Equal
+    value: cronjob
+    effect: NoSchedule
+  vault:
+    pathPrefix: secret/dsde/firecloud/alpha
