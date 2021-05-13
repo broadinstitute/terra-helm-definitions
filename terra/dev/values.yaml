@@ -13,6 +13,10 @@ terra-prometheus:
     chain:
       path: secret/common/ca-bundle.crt
       secretKey: chain
+  # Prometheus-to-sd specifically used for sending kube state metrics to stackdriver
+  prometheusToSD:
+    metricsSources:
+      kube-state-metrics: http://terra-cluster-dev-kube-state-metrics.monitoring:8080
   kube-prometheus-stack:
     fullnameOverride: "terra-prometheus-operator"
     alertmanager:
