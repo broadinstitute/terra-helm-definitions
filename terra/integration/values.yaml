@@ -1,12 +1,23 @@
 terra-cluster-networking:
   gateway:
     name: template-gateway
+diskmanager:
+  enabled: false
 terra-prometheus:
   certManager:
     enabled: true
     dnsNames: "prometheus.integ.envs.broadinstitute.org"
+  prometheusToSD:
+    metricsSources:
+      kube-state-metrics: http://terra-cluster-integration-kube-state-metrics.monitoring:8080
   kube-prometheus-stack:
     fullnameOverride: "terra-prometheus-operator"
+    alertmanager:
+      enabled: false
+    # disable bad scrape target
+    kubelet:
+      serviceMonitor:
+        resource: false
     prometheusOperator:
       createCustomResource: false
       admissionWebhooks:
@@ -37,6 +48,9 @@ terra-prometheus:
         podMonitorSelectorNilUsesHelmValues: false
         podMonitorSelector: {}
         podMonitorNamespaceSelector: {}
+        ruleSelectorNilUsesHelmValues: false
+        ruleSelector: {}
+        ruleNamespaceSelector: {}
         containers:
           - name: stackdriver-exporter
             image: gcr.io/stackdriver-prometheus/stackdriver-prometheus-sidecar:0.7.5
