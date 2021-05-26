@@ -61,7 +61,7 @@ atlantis:
         secretName: azure-cert
   extraVolumeMounts:
     - name: azure-certificate
-      subpath: atlantis-test-sp.pfx
+      subPath: atlantis-test-sp.pfx
       readOnly: true
       mountPath: /var/secrets/azure/atlantis-test-sp.pfx
   repoConfig: |
