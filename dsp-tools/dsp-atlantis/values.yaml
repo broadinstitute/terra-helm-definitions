@@ -42,6 +42,28 @@ atlantis:
       secretKeyRef:
         name: atlantis-github-provider
         key: github-token
+    - name: ARM_CLIENT_ID
+      secretKeyRef:
+        name: azure-env
+        key: ARM_CLIENT_ID
+    - name: ARM_CLIENT_CERTIFICATE_PASSWORD
+      secretKeyRef:
+        name: azure-env
+        key: ARM_CLIENT_CERTIFICATE_PASSWORD
+    - name: ARM_TENANT_ID
+      secretKeyRef:
+        name: azure-env
+        key: ARM_TENANT_ID
+
+  extraVolumes:
+    - name: azure-certificate
+      secret:
+        secretName: azure-cert
+  extraVolumeMounts:
+    - name: azure-certificate
+      subpath: atlantis-test-sp.pfx
+      readOnly: true
+      mountPath: /var/secrets/azure/atlantis-test-sp.pfx
   repoConfig: |
     ---
     repos:
