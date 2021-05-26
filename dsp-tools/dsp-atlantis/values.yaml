@@ -42,6 +42,7 @@ atlantis:
       secretKeyRef:
         name: atlantis-github-provider
         key: github-token
+    # found in vault at /secret/devops/terraform/azure/atlantis/env
     - name: ARM_CLIENT_ID
       secretKeyRef:
         name: azure-env
@@ -55,6 +56,7 @@ atlantis:
         name: azure-env
         key: ARM_TENANT_ID
 
+  # found in vault at secret/devops/terraform/azure/certificate
   extraVolumes:
     - name: azure-certificate
       secret:
