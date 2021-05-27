@@ -1,5 +1,11 @@
 cert:
   renewBefore: 360h0m0s
+azure:
+  enabled: true
+  certificateFile: atlantis-test-cert.pfx
+vault:
+  azure:
+    pathPrefix: secret/devops/terraform/azure
 atlantis:
   defaultTFVersion: '0.12.21'
   atlantisUrl: https://atlantis.dsp-devops.broadinstitute.org
