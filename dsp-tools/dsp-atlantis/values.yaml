@@ -2,7 +2,7 @@ cert:
   renewBefore: 360h0m0s
 azure:
   enabled: true
-  certificateFile: atlantis-test-cert.pfx
+  certificateFile: atlantis-test-sp.pfx
 vault:
   azure:
     pathPrefix: secret/devops/terraform/azure
