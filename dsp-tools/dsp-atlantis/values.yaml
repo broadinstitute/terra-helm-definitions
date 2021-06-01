@@ -80,3 +80,11 @@ atlantis:
       workflow: default
       allowed_overrides: [workflow]
       allow_custom_workflows: true
+
+cleanup:
+  enabled: true
+
+vaultSecrets:
+  cleanupCredentials:
+    path: secret/devops/terraform/atlantis/atlantis-pod-cleanup-sa.json
+    key: sa-key.json.b64
