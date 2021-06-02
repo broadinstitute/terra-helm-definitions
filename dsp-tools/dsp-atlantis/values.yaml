@@ -36,7 +36,6 @@ atlantis:
     limits:
       memory: 3Gi
       cpu: "3"
-  dataStorage: 10Gi
   environment:
     ATLANTIS_HIDE_PREV_PLAN_COMMENTS: true
   environmentSecrets:
