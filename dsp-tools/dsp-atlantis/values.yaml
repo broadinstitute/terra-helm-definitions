@@ -6,6 +6,9 @@ azure:
 vault:
   azure:
     pathPrefix: secret/devops/terraform/azure
+  cleanup:
+    path: secret/devops/terraform/atlantis/atlantis-pod-cleanup-sa.json
+    key: sa-key.json.b64
 atlantis:
   defaultTFVersion: '0.12.21'
   atlantisUrl: https://atlantis.dsp-devops.broadinstitute.org
@@ -83,8 +86,3 @@ atlantis:
 
 cleanup:
   enabled: true
-
-vaultSecrets:
-  cleanupCredentials:
-    path: secret/devops/terraform/atlantis/atlantis-pod-cleanup-sa.json
-    key: sa-key.json.b64
