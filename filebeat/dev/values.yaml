@@ -2,3 +2,11 @@ vault:
   logitUrlPath: secret/dsde/firecloud/dev/common/logitapi
 beatsPort: "18461" 
 environmentName: dev
+ignore:
+  - workspacemanager
+  - buffer
+  - leonardo
+  - sam
+  - cromwell
+  - consent
+  - ontology
