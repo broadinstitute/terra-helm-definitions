@@ -3,7 +3,7 @@ vault:
 beatsPort: "18461" 
 environmentName: dev
 ignore:
-  - workspace-manager
+  - workspacemanager
   - buffer
   - leonardo
   - sam
