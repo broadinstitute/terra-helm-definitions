@@ -1,6 +1,4 @@
-{{- /*
-  Doc reference for atlantis: https://github.com/runatlantis/helm-charts
-*/}}
+# Doc reference for atlantis: https://github.com/runatlantis/helm-charts
 
 cert:
   renewBefore: 360h0m0s
