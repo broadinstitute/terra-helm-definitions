@@ -1,3 +1,5 @@
+# Doc reference for atlantis: https://github.com/runatlantis/helm-charts
+
 cert:
   renewBefore: 360h0m0s
 azure:
@@ -6,6 +8,9 @@ azure:
 vault:
   azure:
     pathPrefix: secret/devops/terraform/azure
+  github:
+    pathPrefix: secret/devops/terraform/atlantis
+    keyName: DSP-ATLANTIS_GITHUB_TOKEN
   cleanup:
     path: secret/devops/terraform/atlantis/atlantis-pod-cleanup-sa.json
     key: sa-key.json.b64
@@ -38,7 +43,14 @@ atlantis:
       cpu: "3"
   environment:
     ATLANTIS_HIDE_PREV_PLAN_COMMENTS: true
+
+  # Values pushed into ENV variables, pulled from Kubernetes secret manager
+  # - name: name of the environment variable
+  #   secretKeyRef: kubernetes secrets info (a hash)
+  #     name: name of the kubernetes secret
+  #     key:  key of the entry in the kubernetes secret
   environmentSecrets:
+    # Credentials for vault, all terraform projects have access to this
     - name: TF_VAR_approle_role_id
       secretKeyRef:
         name: atlantis-vault-approle
@@ -47,10 +59,11 @@ atlantis:
       secretKeyRef:
         name: atlantis-vault-approle
         key: secret-id
-    - name: TF_VAR_github_token
+    # dsp-atlantis github account oauth token
+    - name: TF_VAR_dsp_atlantis_github_token
       secretKeyRef:
-        name: atlantis-github-provider
-        key: github-token
+        name: atlantis-github-providers
+        key: dsp-atlantis-github-token
     # found in vault at /secret/devops/terraform/azure/atlantis/env
     - name: ARM_CLIENT_ID
       secretKeyRef:
