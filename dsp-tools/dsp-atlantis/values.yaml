@@ -10,6 +10,7 @@ vault:
     pathPrefix: secret/devops/terraform/azure
   github:
     pathPrefix: secret/devops/terraform/atlantis
+    keyName: DSP-ATLANTIS_GITHUB_TOKEN
   cleanup:
     path: secret/devops/terraform/atlantis/atlantis-pod-cleanup-sa.json
     key: sa-key.json.b64
