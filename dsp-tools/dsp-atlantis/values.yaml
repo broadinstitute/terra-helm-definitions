@@ -59,6 +59,11 @@ atlantis:
       secretKeyRef:
         name: atlantis-vault-approle
         key: secret-id
+    # legacy github account oauth token used by saturn
+    - name: TF_VAR_github_token
+      secretKeyRef:
+        name: atlantis-github-provider
+        key: github-token
     # dsp-atlantis github account oauth token
     - name: TF_VAR_dsp_atlantis_github_token
       secretKeyRef:
