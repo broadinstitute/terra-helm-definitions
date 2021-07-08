@@ -6,7 +6,6 @@ ignore:
   - workspacemanager
   - buffer
   - leonardo
-  - sam
   - cromwell
   - consent
   - ontology
