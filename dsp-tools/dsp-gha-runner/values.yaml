@@ -6,5 +6,3 @@ vault:
 runners:
   - name: test-revere
     repository: broadinstitute/revere
-  - name: wsm-fork
-    repository: jack-r-warren/terra-workspace-manager
