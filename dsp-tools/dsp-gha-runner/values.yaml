@@ -1,7 +1,7 @@
 vault:
   github:
-    appSecret:
-      path: secret/suitable/github/broadbot/applications/actions-runner-authentication
+    tokenSecret:
+      path: secret/suitable/github/broad-runner-bot/tokens/hosted-actions-runner-registration
 
 runners:
   - name: test-revere
