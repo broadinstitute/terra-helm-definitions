@@ -2,7 +2,3 @@ vault:
   github:
     tokenSecret:
       path: secret/suitable/github/broad-runner-bot/tokens/hosted-actions-runner-registration
-
-runners:
-  - name: test-revere
-    repository: broadinstitute/revere
