@@ -1,3 +1,5 @@
 runners:
   - name: revere
     repository: broadinstitute/revere
+  - name: demo-runners
+    repository: broadinstitute/self-hosted-runner-test
