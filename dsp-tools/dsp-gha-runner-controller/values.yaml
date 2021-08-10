@@ -1,4 +1,0 @@
-vault:
-  github:
-    tokenSecret:
-      path: secret/suitable/github/broad-runner-bot/tokens/hosted-actions-runner-registration
