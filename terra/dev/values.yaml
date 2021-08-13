@@ -94,7 +94,7 @@ terra-prometheus:
               - --stackdriver.kubernetes.cluster-name=terra-dev
               #- \"--stackdriver.generic.location=us-central1\"
               #- \"--stackdriver.generic.namespace=terra-stackdriver-k8s\"
-              - --include={sd_export!="false",__name__!~"container_.*|scrape_.*|node_.*|prober_.*|instance:.*|code_.*|mixin_.*|cluster_.*",__name__=~".+"}
+              - --include={sd_export!="false",__name__!~"container_.*|scrape_.*|node_.*|prober_.*|instance:.*|code_.*|mixin_.*|cluster_.*|metrics_.*|java_lang.*|machine_.*|namespace_.*",__name__=~".+"}
               - --include={__name__=~"kube_node_status_condition"} # Used for cluster health alert
             ports:
               - name: stackdriver-exp
