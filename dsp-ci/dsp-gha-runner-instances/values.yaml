@@ -1,3 +1,16 @@
 runners:
   - name: revere
     repository: broadinstitute/revere
+  - name: workspace-manager
+    repository: DataBiosphere/terra-workspace-manager
+  - name: cromwell
+    repository: broadinstitute/cromwell
+    configOverrides:
+      spec:
+        resources:
+          requests:
+            cpu: "4"
+            memory: "16Gi"
+          limits:
+            cpu: "4"
+            memory: "16Gi"
