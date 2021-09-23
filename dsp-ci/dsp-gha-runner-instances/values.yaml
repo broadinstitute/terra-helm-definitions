@@ -3,6 +3,8 @@ runners:
     repository: broadinstitute/revere
   - name: workspace-manager
     repository: DataBiosphere/terra-workspace-manager
+  - name: terra-gcs-bq-streaming-functions
+    repository: DataBiosphere/terra-gcs-bq-streaming-functions 
   - name: cromwell
     repository: broadinstitute/cromwell
     configOverrides:
