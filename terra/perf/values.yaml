@@ -84,6 +84,7 @@ terra-prometheus:
               - name: prometheus-terra-prometheus-operator-prometheus-db
                 mountPath: /prometheus
 diskmanager:
+  enabled: false
   config:
     googleProject: broad-dsde-perf
   nodeSelector:
