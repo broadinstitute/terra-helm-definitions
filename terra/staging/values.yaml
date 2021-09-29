@@ -1,3 +1,5 @@
+install-secrets-manager:
+  enabled: false
 terra-cluster-networking:
   enabled: false
 terra-prometheus:
