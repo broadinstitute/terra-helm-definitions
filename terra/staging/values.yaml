@@ -4,6 +4,8 @@ terra-cluster-networking:
   enabled: false
 terra-cluster-storage:
   enabled: false
+terra-cluster-psps:
+  enabled: false
 terra-prometheus:
   # TLS Values
   vaultCert:
