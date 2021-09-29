@@ -1,6 +1,12 @@
 terra-cluster-networking:
   gateway:
     name: template-gateway
+install-secrets-manager:
+  enabled: false
+terra-cluster-storage:
+  enabled: false
+terra-cluster-psps:
+  enabled: false
 diskmanager:
   enabled: false
 terra-prometheus:
