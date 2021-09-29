@@ -2,6 +2,8 @@ install-secrets-manager:
   enabled: false
 terra-cluster-networking:
   enabled: false
+terra-cluster-storage:
+  enabled: false
 terra-prometheus:
   # TLS Values
   vaultCert:
