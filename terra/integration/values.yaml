@@ -1,4 +1,5 @@
 terra-cluster-networking:
+  enabled: false
   gateway:
     name: template-gateway
 install-secrets-manager:
