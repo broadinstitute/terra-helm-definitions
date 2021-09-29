@@ -10,6 +10,8 @@ terra-cluster-psps:
   enabled: false
 diskmanager:
   enabled: false
+reloader:
+  enabled: false
 terra-prometheus:
   certManager:
     enabled: true
