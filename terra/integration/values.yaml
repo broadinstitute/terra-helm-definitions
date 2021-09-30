@@ -13,6 +13,7 @@ diskmanager:
 reloader:
   enabled: false
 terra-prometheus:
+  enabled: false
   certManager:
     enabled: true
     dnsNames: "prometheus.integ.envs.broadinstitute.org"

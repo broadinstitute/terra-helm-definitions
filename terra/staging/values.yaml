@@ -9,6 +9,7 @@ terra-cluster-psps:
 reloader:
   enabled: false
 terra-prometheus:
+  enabled: false
   # TLS Values
   vaultCert:
     enabled: true
