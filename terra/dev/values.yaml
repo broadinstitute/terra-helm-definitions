@@ -10,6 +10,7 @@ reloader:
   enabled: false
 terra-prometheus:
   # TLS Values
+  enabled: false
   vaultCert:
     enabled: true
     cert:
