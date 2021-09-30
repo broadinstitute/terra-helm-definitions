@@ -1,3 +1,8 @@
+runnerDefaults:
+  spec:
+    nodeSelector:
+      cloud.google.com/gke-nodepool: ci-runners-v1
+
 runners:
   - name: revere
     repository: broadinstitute/revere
