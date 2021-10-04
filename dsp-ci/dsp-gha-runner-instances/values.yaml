@@ -1,6 +1,7 @@
+defaultDockerConfig: privilegedSidecar
+
 runnerDefaults:
   spec:
-    image: summerwind/actions-runner-dind:latest
     nodeSelector:
       cloud.google.com/gke-nodepool: ci-runners-v1
 
