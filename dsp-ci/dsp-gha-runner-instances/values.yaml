@@ -1,3 +1,5 @@
+defaultDockerConfig: privilegedSidecar
+
 runnerDefaults:
   spec:
     nodeSelector:
