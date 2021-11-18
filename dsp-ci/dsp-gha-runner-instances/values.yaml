@@ -1,11 +1,18 @@
 defaultDockerConfig: privilegedSidecar
 
 runnerDefaults:
+  metadata:
+    annotations:
+      cluster-autoscaler.kubernetes.io/safe-to-evict: "true"
   spec:
     nodeSelector:
       cloud.google.com/gke-nodepool: ci-runners-v1
 
 runners:
+  - name: dsp-grafana
+    repository: broadinstitute/dsp-grafana
+    minReplicas: 1
+    maxReplicas: 1
   - name: revere
     repository: broadinstitute/revere
   - name: workspace-manager
