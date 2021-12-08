@@ -70,30 +70,20 @@ atlantis:
       secretKeyRef:
         name: atlantis-github-providers
         key: dsp-atlantis-github-token
-    # found in vault at /secret/devops/terraform/azure/atlantis/env
+    # found in vault at /secret/devops/terraform/azure/atlantis/ad-credentials
     - name: ARM_CLIENT_ID
       secretKeyRef:
         name: azure-env
         key: ARM_CLIENT_ID
-    - name: ARM_CLIENT_CERTIFICATE_PASSWORD
+    - name: ARM_CLIENT_SECRET
       secretKeyRef:
         name: azure-env
-        key: ARM_CLIENT_CERTIFICATE_PASSWORD
+        key: ARM_CLIENT_SECRET
     - name: ARM_TENANT_ID
       secretKeyRef:
         name: azure-env
         key: ARM_TENANT_ID
 
-  # found in vault at secret/devops/terraform/azure/certificate
-  extraVolumes:
-    - name: azure-certificate
-      secret:
-        secretName: azure-cert
-  extraVolumeMounts:
-    - name: azure-certificate
-      subPath: atlantis-test-sp.pfx
-      readOnly: true
-      mountPath: /var/secrets/azure/atlantis-test-sp.pfx
   repoConfig: |
     ---
     repos:
