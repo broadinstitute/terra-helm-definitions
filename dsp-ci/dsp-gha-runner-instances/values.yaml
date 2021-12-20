@@ -30,7 +30,7 @@ runners:
           limits:
             cpu: "4"
             memory: "16Gi"
-  - name: single_cell_portal_core
+  - name: single-cell-portal-core
     repository: broadinstitute/single_cell_portal_core
     minReplicas: 1
     maxReplicas: 1
