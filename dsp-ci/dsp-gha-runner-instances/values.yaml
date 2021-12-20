@@ -30,3 +30,14 @@ runners:
           limits:
             cpu: "4"
             memory: "16Gi"
+  - name: single_cell_portal_core
+    repository: broadinstitute/single_cell_portal_core
+    configOverrides:
+      spec:
+        resources:
+          requests:
+            cpu: "2"
+            memory: "8Gi"
+          limits:
+            cpu: "2"
+            memory: "8Gi"
