@@ -32,6 +32,8 @@ runners:
             memory: "16Gi"
   - name: single_cell_portal_core
     repository: broadinstitute/single_cell_portal_core
+    minReplicas: 1
+    maxReplicas: 1
     configOverrides:
       spec:
         resources:
