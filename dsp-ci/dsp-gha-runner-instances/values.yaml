@@ -18,7 +18,7 @@ runners:
   - name: workspace-manager
     repository: DataBiosphere/terra-workspace-manager
   - name: terra-gcs-bq-streaming-functions
-    repository: DataBiosphere/terra-gcs-bq-streaming-functions 
+    repository: DataBiosphere/terra-gcs-bq-streaming-functions
   - name: cromwell
     repository: broadinstitute/cromwell
     configOverrides:
@@ -30,6 +30,8 @@ runners:
           limits:
             cpu: "4"
             memory: "16Gi"
+  - name: terra-externalcreds
+    repository: DataBiosphere/terra-external-credentials-manager
   - name: single-cell-portal-core
     repository: broadinstitute/single_cell_portal_core
     minReplicas: 1
