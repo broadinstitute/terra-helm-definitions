@@ -45,3 +45,6 @@ runners:
           limits:
             cpu: "2"
             memory: "8Gi"
+  - name: firecloud-automated-testing
+    repository: broadinstitute/firecloud-automated-testing
+    
