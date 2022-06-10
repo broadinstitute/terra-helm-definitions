@@ -45,4 +45,5 @@ runners:
             memory: "8Gi"
   - name: firecloud-automated-testing
     repository: broadinstitute/firecloud-automated-testing
-    
+  - name: terra-docker
+    repository: DataBiosphere/terra-docker
