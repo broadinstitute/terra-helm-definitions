@@ -28,6 +28,8 @@ runners:
           limits:
             cpu: "4"
             memory: "16Gi"
+  - name: leonardo
+    repository: DataBiosphere/leonardo
   - name: terra-externalcreds
     repository: DataBiosphere/terra-external-credentials-manager
   - name: single-cell-portal-core
